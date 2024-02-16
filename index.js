@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import { PORT } from './config.js';
 import { MongoDBUrl } from './config.js';
+// const {MongoDBUrl} = process.env;
 import cors from 'cors'
 import { PostMod } from './Models/PostModel.js';
 import router from './Routes/PostRoute.js';
@@ -16,9 +17,12 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 app.use("/posts", router)
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+
+// For img upload via multer
+
+// const __filename = fileURLToPath(import.meta.url);
+// const __dirname = dirname(__filename);
+// app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
 
 // --------------------------------------------------------------------------------------->
 
